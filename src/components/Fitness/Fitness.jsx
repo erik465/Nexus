@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import CustomButton from "../shared/CustomButton";
 import GoalSetup from "./GoalSetup";
+import Tracking from "./Tracking";
 
 const Container = styled.div`
   display: flex;
@@ -10,7 +11,6 @@ const Container = styled.div`
   gap: 20px;
   padding: 50px;
 `;
-const Tracking = styled.div``;
 
 const Fitness = () => {
   const [goal, setGoal] = useState(null);
@@ -20,7 +20,7 @@ const Fitness = () => {
     <div>
       {goal === null ? (
         goalSetup ? (
-          <GoalSetup />
+          <GoalSetup setGoal={setGoal} />
         ) : (
           <Container>
             <b>Looks like you have no fitness goal. Maybe set one up</b>
@@ -31,9 +31,7 @@ const Fitness = () => {
           </Container>
         )
       ) : (
-        <Tracking>
-          <p>Your progress:</p>
-        </Tracking>
+        <Tracking goal={goal} />
       )}
     </div>
   );
