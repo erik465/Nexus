@@ -13,7 +13,12 @@ const Container = styled.div`
 `;
 
 const Fitness = () => {
-  const [goal, setGoal] = useState(null);
+  const [goal, setGoal] = useState({
+    currentWeight: 42,
+    weightGoal: 50,
+    waterGoal: 2000,
+    meditationGoal: 30,
+  });
   const [goalSetup, setGoalSetup] = useState(false);
 
   return (
