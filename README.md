@@ -38,4 +38,4 @@ We welcome contributions from the community! Feel free to submit issues or pull 
 For any inquiries or support, please reach out to us:
 
 - Email: ehalasz06@gmail.com
-- LinkedIn: [Nexus Platform](https://www.linkedin.com/in/erik-halasz/)
+- LinkedIn: [Erik Halasz](https://www.linkedin.com/in/erik-halasz/)
