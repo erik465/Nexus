@@ -18,19 +18,3 @@ export const DashboardView = styled.div`
   grid-template-columns: repeat(2, 1fr);
   gap: 20px;
 `;
-
-export const DashboardViewItem = styled.div`
-  border: 1px solid #32292f;
-  border-radius: 15px;
-  padding: 10px 25px;
-  transition: 1s;
-
-  p {
-    width: 70%;
-  }
-
-  &:hover {
-    background-color: #32292f;
-    color: #eaeaea;
-  }
-`;
