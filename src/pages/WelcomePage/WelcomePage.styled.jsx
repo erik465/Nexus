@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 export const GlobalContainer = styled.div`
   margin-bottom: 50px;
   padding: 60px 0;
-  display: flex;
 `;
 
 export const StyledContainer = styled.div`

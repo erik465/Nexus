@@ -27,14 +27,13 @@ const WelcomePage = () => {
           style={{
             fontSize: "4em",
             display: "block",
-            marginBottom: "150px",
           }}
           repeat={Infinity}
         />
         <h1>Haven't joined yet?</h1>
         <StyledBox>
-          <StyledLink>LOG IN</StyledLink>
-          <StyledLink>REGISTER</StyledLink>
+          <StyledLink to="/login">LOG IN</StyledLink>
+          <StyledLink to="/register">REGISTER</StyledLink>
         </StyledBox>
         <p>
           Embark on a journey of connection and collaboration like never before.
