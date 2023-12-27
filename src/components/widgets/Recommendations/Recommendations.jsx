@@ -1,12 +1,11 @@
 import React from "react";
-import styled from "styled-components";
-
-const Container = styled.div``;
+import { Container, Reccomendations } from "./Recommendations.styled";
 
 const Recommendations = () => {
   return (
     <Container>
       <h2>Recommendations for you</h2>
+      <Reccomendations>Recommendations for you</Reccomendations>
     </Container>
   );
 };
