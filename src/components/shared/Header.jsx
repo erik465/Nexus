@@ -4,6 +4,7 @@ import { NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { selectToken } from "../../redux/selectors";
 import { BsPerson } from "react-icons/bs";
+import { AiOutlineLogout } from "react-icons/ai";
 
 const StyledContainer = styled.header`
   background-color: #222224;
@@ -34,6 +35,10 @@ const StyledLink = styled(NavLink)`
     color: #ff7b9c;
   }
 
+  &.active > .icon {
+    fill: #ff7b9c;
+  }
+
   &:hover {
     color: #ff7b9c;
   }
@@ -49,19 +54,26 @@ const Header = () => {
   const token = useSelector(selectToken);
   return (
     <StyledContainer>
-      <img
-        src={`${process.env.PUBLIC_URL}/Logo-no-bg.svg`}
-        alt="Nexus logo"
-      ></img>
+      <StyledLink to="/">
+        <img
+          src={`${process.env.PUBLIC_URL}/Logo-no-bg.svg`}
+          alt="Nexus logo"
+        ></img>
+      </StyledLink>
       {token ? (
         <NavContainer>
           <StyledLink to="/dashboard">Dashboard</StyledLink>
           <StyledLink to="/messages">Messages</StyledLink>
           <StyledLink to="/collaboration">Collaboration</StyledLink>
           <StyledLink to="">Soon</StyledLink>
-          <StyledLink to="">Soon</StyledLink>
 
-          <StyledLink to="/profile">Profile </StyledLink>
+          <StyledLink to="/profile">
+            Profile <BsPerson className="icon" size={24} color="#eaeaea" />
+          </StyledLink>
+          <StyledLink to="/logout">
+            Logout
+            <AiOutlineLogout className="icon" size={24} color="#eaeaea" />
+          </StyledLink>
         </NavContainer>
       ) : (
         <StyledLink to="/login">

@@ -3,6 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import Layout from "./shared/Layout";
 import PrivateRoute from "./auth/PrivateRoute";
 import PublicRoute from "./auth/PublicRoute";
+import Logout from "./auth/Logout";
 
 const WelcomePage = lazy(() => import("../pages/WelcomePage/WelcomePage"));
 const DashboardPage = lazy(() =>
@@ -42,6 +43,7 @@ function App() {
                 </PublicRoute>
               }
             />
+            <Route path="/logout" element={<Logout />} />
           </Route>
         </Routes>
       </Suspense>

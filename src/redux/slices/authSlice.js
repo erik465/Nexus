@@ -8,7 +8,7 @@ const initialState = {
 };
 
 const handleFulfilled = (state, action) => {
-  state.token = action.payload.token;
+  state.token = action.payload.data.token;
   state.isLoading = false;
   state.error = null;
 };
