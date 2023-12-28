@@ -1,10 +1,13 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
 import { FaCheck, FaCircle } from "react-icons/fa";
 
+import { useDispatch } from "react-redux";
+import { toggleCompletedTask, getTasks } from "../../../../redux/operations";
+
 const StyledTask = styled.li`
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   align-items: center;
   padding: 0 5px;
   text-decoration: ${(props) => (props.$done ? " line-through" : "none")};
@@ -20,14 +23,16 @@ const StyledTask = styled.li`
 
 const Status = styled.div``;
 
-const Task = ({ title, description, done }) => {
-  const [doneTask, setDoneTask] = useState(done);
-  const onToggle = () => {
-    setDoneTask(!doneTask);
+const Task = ({ title, description, done, id }) => {
+  const dispatch = useDispatch();
+
+  const onToggle = async () => {
+    await dispatch(toggleCompletedTask(id));
+    await dispatch(getTasks());
   };
 
   return (
-    <StyledTask $done={doneTask}>
+    <StyledTask $done={done}>
       <div>
         <h3>{title}</h3>
         <p>{description}</p>
@@ -36,7 +41,7 @@ const Task = ({ title, description, done }) => {
         onClick={onToggle}
         style={{ cursor: "pointer", marginRight: "8px" }}
       >
-        {doneTask ? (
+        {done ? (
           <FaCheck size={20} color="#2ecc71" />
         ) : (
           <FaCircle size={20} color="#95a5a6" />

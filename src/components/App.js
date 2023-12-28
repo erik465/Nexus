@@ -1,4 +1,7 @@
-import React, { Suspense, lazy } from "react";
+import React, { Suspense, lazy, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { selectToken } from "../redux/selectors";
+import { setAuthToken, getUser } from "../redux/operations";
 import { Routes, Route } from "react-router-dom";
 import Layout from "./shared/Layout";
 import PrivateRoute from "./auth/PrivateRoute";
@@ -13,6 +16,16 @@ const RegisterPage = lazy(() => import("../pages/RegisterPage/RegisterPage"));
 const LoginPage = lazy(() => import("../pages/LoginPage/LoginPage"));
 
 function App() {
+  const dispatch = useDispatch();
+  const token = useSelector(selectToken);
+
+  useEffect(() => {
+    if (token) {
+      setAuthToken(token);
+      dispatch(getUser());
+    }
+  }, [dispatch, token]);
+
   return (
     <div>
       <Suspense fallback={<div>Loading...</div>}>

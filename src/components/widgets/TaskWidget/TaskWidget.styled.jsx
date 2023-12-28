@@ -37,3 +37,50 @@ export const StyledHeading = styled.div`
 export const StyledLink = styled(Link)`
   color: #eaeaea;
 `;
+
+export const ModalForm = styled.form`
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+
+  label {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-bottom: 10px;
+  }
+
+  input,
+  textarea {
+    border: 1px solid #eaeaea;
+    color: #eaeaea;
+    background-color: transparent;
+    padding: 5px;
+    outline: none;
+    border-radius: 10px;
+    max-width: 100%;
+  }
+
+  textarea {
+    min-height: 100px;
+    max-height: 500px;
+  }
+
+  button {
+    width: 40%;
+    text-align: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+`;
+
+export const CancelButton = styled.button`
+  background: transparent;
+  color: #eaeaea;
+  text-decoration: underline;
+  border: none;
+  outline: none;
+  margin: 10px;
+  display: flex;
+  justify-content: flex-start !important;
+`;

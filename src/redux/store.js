@@ -12,13 +12,15 @@ import {
 } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 import { authReducer } from "./slices/authSlice";
+import { userReducer } from "./slices/userSlice";
 
 const persistConfig = {
   key: "auth",
   storage,
+  blacklist: ["user"],
 };
 
-const reducer = combineReducers({ auth: authReducer });
+const reducer = combineReducers({ auth: authReducer, user: userReducer });
 
 const persistedReducer = persistReducer(persistConfig, reducer);
 

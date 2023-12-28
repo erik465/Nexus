@@ -1,4 +1,6 @@
 import React from "react";
+import { useSelector } from "react-redux";
+import { selectUser } from "../../redux/selectors";
 import {
   DashboardLayout,
   WelcomeMessage,
@@ -10,9 +12,10 @@ import FitnessTracker from "../../components/widgets/FitnessTracker/FitnessTrack
 import Recommendations from "../../components/widgets/Recommendations/Recommendations";
 
 const DashboardPage = () => {
+  const user = useSelector(selectUser);
   return (
     <DashboardLayout>
-      <WelcomeMessage>Welcome back, user</WelcomeMessage>
+      <WelcomeMessage>Welcome back, {user ? user.username : ""}</WelcomeMessage>
       <DashboardView>
         <TaskWidget />
         <EventPlanner />
