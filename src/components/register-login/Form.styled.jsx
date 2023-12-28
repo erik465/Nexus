@@ -76,3 +76,10 @@ export const ErrorMessage = styled.p`
   margin: 0;
   font-size: 14px;
 `;
+
+export const FitnessLink = styled.p`
+  margin: 0;
+  font-size: 14px;
+  cursor: pointer;
+  text-decoration: underline;
+`;

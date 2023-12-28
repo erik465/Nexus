@@ -7,27 +7,26 @@ import {
   StyledButton,
   ErrorMessage,
 } from "./Form.styled";
-import { useSelector, useDispatch } from "react-redux";
-import { selectToken } from "../../redux/selectors";
+import { useDispatch } from "react-redux";
 import { login } from "../../redux/operations";
 
 const LoginForm = () => {
   const dispatch = useDispatch();
+
   const [formData, setFormData] = useState({
     email: "",
     password: "",
   });
 
-  const [error, setErrors] = useState(["", ""]);
+  /*  const [error, setErrors] = useState(["", ""]);*/
 
   const handleBlur = (e) => {
     const { name, value } = e.target;
     const newFormData = { ...formData, [name]: value };
     setFormData(newFormData);
-    validateField(name, value);
   };
 
-  const validateField = (fieldName, value) => {
+  /* const validateField = (fieldName, value) => {
     switch (fieldName) {
       case "username":
         setErrors((prevErrors) => {
@@ -42,19 +41,12 @@ const LoginForm = () => {
       default:
         break;
     }
-  };
+  };*/
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    Object.entries(formData).forEach(([fieldName, value]) => {
-      validateField(fieldName, value);
-    });
-
-    const hasErrors = Object.values(error).some((error) => error !== "");
-    if (!hasErrors) {
-      await dispatch(login(formData));
-    }
+    dispatch(login(formData));
   };
 
   return (
@@ -69,8 +61,9 @@ const LoginForm = () => {
             name="email"
             placeholder="Your email"
             onBlur={(e) => handleBlur(e)}
+            required
           />
-          <ErrorMessage>{error[0]}</ErrorMessage>
+          <ErrorMessage></ErrorMessage>
         </StyledLabel>
         <StyledLabel>
           Password*
@@ -79,10 +72,12 @@ const LoginForm = () => {
             name="password"
             placeholder="Your password"
             onBlur={(e) => handleBlur(e)}
+            required
           />
-          <ErrorMessage>{error[1]}</ErrorMessage>
+          <ErrorMessage></ErrorMessage>
         </StyledLabel>
         <StyledButton>Log in</StyledButton>
+
         <StyledLink to="/register">
           Don't have an account? Register now
         </StyledLink>

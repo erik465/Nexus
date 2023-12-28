@@ -18,7 +18,14 @@ function App() {
       <Suspense fallback={<div>Loading...</div>}>
         <Routes>
           <Route path="/" element={<Layout />}>
-            <Route index element={<WelcomePage />} />
+            <Route
+              index
+              element={
+                <PublicRoute>
+                  <WelcomePage />
+                </PublicRoute>
+              }
+            />
             <Route
               path="/dashboard"
               element={
@@ -43,7 +50,14 @@ function App() {
                 </PublicRoute>
               }
             />
-            <Route path="/logout" element={<Logout />} />
+            <Route
+              path="/logout"
+              element={
+                <PrivateRoute>
+                  <Logout />{" "}
+                </PrivateRoute>
+              }
+            />
           </Route>
         </Routes>
       </Suspense>

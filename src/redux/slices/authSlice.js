@@ -34,14 +34,18 @@ const authSlice = createSlice({
     builder
       .addCase(register.pending, handlePending)
       .addCase(register.rejected, handleRejected)
-      .addCase(register.fulfilled, handleFulfilled)
+      .addCase(register.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.error = null;
+        state.token = action.payload.data.user.token;
+      })
       .addCase(login.pending, handlePending)
       .addCase(login.rejected, handleRejected)
       .addCase(login.fulfilled, handleFulfilled)
       .addCase(logout.pending, handlePending)
       .addCase(logout.rejected, handleRejected)
-      .addCase(logout.fulfilled, () => {
-        this.state.token = null;
+      .addCase(logout.fulfilled, (state, action) => {
+        state.token = null;
       });
   },
 });
