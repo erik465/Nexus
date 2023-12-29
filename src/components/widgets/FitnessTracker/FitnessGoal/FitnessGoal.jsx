@@ -65,8 +65,11 @@ const FitnessGoal = ({ data }) => {
       <MeditationContainer></MeditationContainer>
       <HydrationContainer>
         <h2>Daily hydration</h2>
+        <div>
+          <p style={{ color: selectColor() }}>1000mL / 2000mL</p>
+          <input type="number" placeholder="Quantity in mL" />
+        </div>
         <LuGlassWater color={selectColor()} size={200}></LuGlassWater>
-        <p style={{ color: selectColor() }}>1000mL / 2000mL</p>
         <CustomButton>Add water</CustomButton>
       </HydrationContainer>
     </StyledContainer>
