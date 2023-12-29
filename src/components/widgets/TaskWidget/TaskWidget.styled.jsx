@@ -10,6 +10,11 @@ export const Container = styled.div`
   min-height: 500px;
   max-height: 500px;
   overflow-y: auto;
+  transition: 0.5s;
+
+  &:hover {
+    box-shadow: 0 0 20px rgba(234, 128, 229, 0.574);
+  }
 
   &::-webkit-scrollbar {
     width: 6px;

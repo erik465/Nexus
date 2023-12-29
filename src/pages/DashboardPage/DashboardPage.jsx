@@ -15,6 +15,7 @@ const DashboardPage = () => {
   const user = useSelector(selectUser);
   return (
     <DashboardLayout>
+      <h1>Personal Dashboard</h1>
       <WelcomeMessage>Welcome back, {user ? user.username : ""}</WelcomeMessage>
       <DashboardView>
         <TaskWidget />

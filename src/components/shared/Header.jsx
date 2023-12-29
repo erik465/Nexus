@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { selectToken } from "../../redux/selectors";
+import { selectToken, selectUser } from "../../redux/selectors";
 import { BsPerson } from "react-icons/bs";
 import { AiOutlineLogout } from "react-icons/ai";
 
@@ -52,6 +52,7 @@ const StyledLink = styled(NavLink)`
 
 const Header = () => {
   const token = useSelector(selectToken);
+  const user = useSelector(selectUser);
   return (
     <StyledContainer>
       <StyledLink to="/">
@@ -68,7 +69,8 @@ const Header = () => {
           <StyledLink to="">Soon</StyledLink>
 
           <StyledLink to="/profile">
-            Profile <BsPerson className="icon" size={24} color="#eaeaea" />
+            {user?.username}{" "}
+            <BsPerson className="icon" size={24} color="#eaeaea" />
           </StyledLink>
           <StyledLink to="/logout">
             Logout

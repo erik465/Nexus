@@ -9,12 +9,9 @@ export const Container = styled.div`
   padding: 10px 20px;
   border-radius: 15px;
   grid-column: 1/3;
-`;
+  transition: 0.5s;
 
-export const Tracking = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
+  &:hover {
+    box-shadow: 0 0 20px rgba(234, 128, 229, 0.574);
+  }
 `;
