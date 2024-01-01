@@ -86,4 +86,16 @@ export const HydrationContainer = styled.div`
     font-size: 20px;
     margin: 0;
   }
+
+  div {
+    display: flex;
+    gap: 15px;
+  }
+
+  input {
+    border: 1px solid #eaeaea;
+    background: transparent;
+    border-radius: 10px;
+    padding: 4px;
+  }
 `;

@@ -9,10 +9,6 @@ export const Container = styled.div`
   padding: 10px 20px;
   border-radius: 15px;
   transition: 0.5s;
-
-  &:hover {
-    box-shadow: 0 0 20px rgba(234, 128, 229, 0.574);
-  }
 `;
 
 export const Reccomendations = styled.div`

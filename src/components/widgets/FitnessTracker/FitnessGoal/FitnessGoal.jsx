@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   StyledContainer,
   WeightContainer,
@@ -24,6 +24,8 @@ const FitnessGoal = ({ data }) => {
     else if (percentage < 100) return "#b5dd49";
     else if (percentage === 100) return "#41e528";
   }
+
+  const [waterIntake, setWaterIntake] = useState(false);
 
   return (
     <StyledContainer>
@@ -67,10 +69,12 @@ const FitnessGoal = ({ data }) => {
         <h2>Daily hydration</h2>
         <div>
           <p style={{ color: selectColor() }}>1000mL / 2000mL</p>
-          <input type="number" placeholder="Quantity in mL" />
+          {waterIntake && <input type="number" placeholder="Quantity in mL" />}
         </div>
-        <LuGlassWater color={selectColor()} size={200}></LuGlassWater>
-        <CustomButton>Add water</CustomButton>
+        <LuGlassWater color={selectColor()} size={150}></LuGlassWater>
+        <CustomButton onClick={() => setWaterIntake(!waterIntake)}>
+          Add water
+        </CustomButton>
       </HydrationContainer>
     </StyledContainer>
   );

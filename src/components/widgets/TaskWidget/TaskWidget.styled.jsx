@@ -12,10 +12,6 @@ export const Container = styled.div`
   overflow-y: auto;
   transition: 0.5s;
 
-  &:hover {
-    box-shadow: 0 0 20px rgba(234, 128, 229, 0.574);
-  }
-
   &::-webkit-scrollbar {
     width: 6px;
   }
