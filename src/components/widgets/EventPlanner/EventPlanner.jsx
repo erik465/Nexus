@@ -1,10 +1,13 @@
 import React from "react";
-import { Container, Events } from "./EventPlanner.styled";
+import { Container, Events, Heading, StyledLink } from "./EventPlanner.styled";
 
 const EventPlanner = () => {
   return (
     <Container>
-      <h2>Your Events 🎉</h2>
+      <Heading>
+        <h2>Your Events 🎉</h2>
+        <StyledLink>See more</StyledLink>
+      </Heading>
       <Events>You have no planned events.</Events>
     </Container>
   );

@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 export const Container = styled.div`
   display: flex;
@@ -11,10 +12,21 @@ export const Container = styled.div`
   transition: 0.5s;
 `;
 
+export const Heading = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
+
 export const Events = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 100%;
+`;
+
+export const StyledLink = styled(Link)`
+  color: #eaeaea;
 `;

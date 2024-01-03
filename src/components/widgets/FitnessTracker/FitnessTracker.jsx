@@ -14,10 +14,10 @@ const FitnessTracker = () => {
       {fitnessGoal !== null ? (
         <FitnessGoal data={fitnessGoal} />
       ) : (
-        <>
+        <div style={{ width: 300 }}>
           <p>No Fitness goal set</p>
           <CustomButton>Create a goal</CustomButton>
-        </>
+        </div>
       )}
     </Container>
   );
